@@ -37,7 +37,7 @@ public class KubernetesRunner {
             return -1;
         }
 
-        String maxTimeToWaitStr = getEnv("MAX_TIME_TO_WAIT_MS", "60000");
+        String maxTimeToWaitStr = System.getenv().getOrDefault("MAX_TIME_TO_WAIT_MS", "60000");
 
         long maxTimeToWait = Long.parseLong(maxTimeToWaitStr);
 
@@ -58,14 +58,6 @@ public class KubernetesRunner {
             LOGGER.error("Statefulset " + statefulSetName + " is ready. Exiting...");
             return 0;
         }
-    }
-
-    private String getEnv(String name, String defaultVal) {
-        String env = System.getenv(name);
-        if (env == null) {
-            return defaultVal;
-        }
-        return env;
     }
 
 }
