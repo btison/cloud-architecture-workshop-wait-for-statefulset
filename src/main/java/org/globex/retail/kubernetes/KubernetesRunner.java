@@ -55,7 +55,7 @@ public class KubernetesRunner {
             LOGGER.error("Statefulset " + statefulSetName + " is not ready after " + maxTimeToWaitStr + " milliseconds. Exiting...");
             return -1;
         } else {
-            LOGGER.error("Statefulset " + statefulSetName + " is ready. Exiting...");
+            LOGGER.info("Statefulset " + statefulSetName + " is ready. Exiting...");
             return 0;
         }
     }
